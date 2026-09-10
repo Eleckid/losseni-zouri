@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="LZ, Losseni Zouri">
+  <title>Losseni Zouri</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#131A2B"/>
+      <stop offset="1" stop-color="#0A0D17"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+  <rect x="0.55" y="0.55" width="30.9" height="30.9" rx="6.5" fill="none"
+        stroke="#5EE6C9" stroke-opacity="0.18" stroke-width="1.1"/>
+  <path d="M9.2 9.0 L9.2 23.0 L15.4 23.0" fill="none" stroke="#EEF1F6" stroke-width="3.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.6 9.0 L25.2 9.0 L18.6 23.0 L25.2 23.0" fill="none" stroke="#5EE6C9" stroke-width="3.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

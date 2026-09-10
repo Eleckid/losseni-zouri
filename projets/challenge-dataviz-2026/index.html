@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Challenge Dataviz 2026 - évolution démographique des régions françaises · Losseni Zouri</title>
+  <meta name="description" content="Étude de cas : en une journée, une infographie Power BI sur l'évolution démographique des 18 régions françaises entre 2016 et 2022 à partir des données INSEE. Contexte, méthode, dashboard, résultats et rapport PDF. Par Losseni Zouri, Data Analyst en formation.">
+  <meta name="author" content="Losseni Zouri">
+  <meta name="theme-color" content="#0A0D17">
+  <link rel="canonical" href="https://losseni-zouri.github.io/projets/challenge-dataviz-2026/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Losseni Zouri - Portfolio Data">
+  <meta property="og:title" content="Challenge Dataviz 2026 - évolution démographique des régions françaises">
+  <meta property="og:description" content="Une journée, une équipe de quatre, les données INSEE : une infographie Power BI sur le vieillissement des 18 régions françaises entre 2016 et 2022.">
+  <meta property="og:url" content="https://losseni-zouri.github.io/projets/challenge-dataviz-2026/">
+  <meta property="og:image" content="https://losseni-zouri.github.io/assets/images/og-challenge-dataviz-2026.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dashboard Power BI du Challenge Dataviz 2026 réalisé par Losseni Zouri">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Challenge Dataviz 2026 - évolution démographique des régions françaises">
+  <meta name="twitter:description" content="Étude de cas Power BI · données INSEE · 18 régions · 2016 vs 2022. Par Losseni Zouri.">
+  <meta name="twitter:image" content="https://losseni-zouri.github.io/assets/images/og-challenge-dataviz-2026.jpg">
+
+  <link rel="icon" href="../../favicon.ico" sizes="48x48">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+
+  <link rel="preload" href="../../assets/fonts/sora-400-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/instrument-sans-400-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/cursor-data.js" defer></script>
+  <script src="../../assets/js/lab.js" defer></script>
+  <script src="../../assets/vendor/d3.v7.min.js" defer></script>
+  <script src="../../assets/vendor/chart.umd.min.js" defer></script>
+  <script src="../../assets/data/regions-france.js" defer></script>
+  <script src="../../assets/data/demographie-regions.js" defer></script>
+  <script src="../../assets/js/dataviz.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Portfolio", "item": "https://losseni-zouri.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Projets", "item": "https://losseni-zouri.github.io/#projets" },
+          { "@type": "ListItem", "position": 3, "name": "Challenge Dataviz 2026", "item": "https://losseni-zouri.github.io/projets/challenge-dataviz-2026/" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "headline": "Challenge Dataviz 2026 - l'évolution démographique des régions françaises, 2016–2022",
+        "description": "Infographie Power BI réalisée en une journée à partir des données INSEE : comparaison de la structure par âge des 18 régions françaises entre 2016 et 2022.",
+        "image": "https://losseni-zouri.github.io/assets/images/og-challenge-dataviz-2026.jpg",
+        "datePublished": "2026-05-21",
+        "inLanguage": "fr",
+        "author": { "@type": "Person", "name": "Losseni Zouri", "url": "https://losseni-zouri.github.io/" },
+        "about": ["Data Analytics", "Power BI", "INSEE", "Démographie"],
+        "mainEntityOfPage": "https://losseni-zouri.github.io/projets/challenge-dataviz-2026/"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<svg hidden aria-hidden="true" focusable="false">
+  <symbol id="icon-arrow" viewBox="0 0 20 20"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-arrow-left" viewBox="0 0 20 20"><path d="M16 10H5m4.5-4.5L5 10l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-external" viewBox="0 0 20 20"><path d="M8 4H4.5A1.5 1.5 0 0 0 3 5.5v10A1.5 1.5 0 0 0 4.5 17h10a1.5 1.5 0 0 0 1.5-1.5V12M11 3h6v6M17 3l-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-download" viewBox="0 0 20 20"><path d="M10 3v9m0 0 3.5-3.5M10 12 6.5 8.5M4 14.5v1A1.5 1.5 0 0 0 5.5 17h9a1.5 1.5 0 0 0 1.5-1.5v-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="site-header" id="top">
+  <div class="wrap flex h-full items-center justify-between gap-6">
+    <a class="group inline-flex items-center gap-[0.65rem] font-display text-base font-semibold tracking-[-0.02em] text-ink no-underline" href="../../index.html" aria-label="Losseni Zouri - retour au portfolio">
+      <span>Losseni Zouri</span>
+    </a>
+
+    <button class="nav-toggle inline-flex min-h-11 items-center gap-[0.6rem] border-0 bg-transparent py-2 pl-3 pr-1 font-mono text-xs uppercase tracking-[0.12em] lg:hidden" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <ul class="site-nav__list flex flex-col lg:flex-row lg:gap-6">
+        <li><a class="site-nav__link" href="../../index.html">Portfolio</a></li>
+        <li><a class="site-nav__link" href="../../index.html#parcours">Parcours</a></li>
+        <li><a class="site-nav__link" href="../../index.html#projets">Projets</a></li>
+        <li><a class="site-nav__link" href="../../index.html#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn--sm self-start lg:self-center" href="../../index.html#contact">Me contacter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <article>
+
+    <!-- ============================================================ EN-TÊTE DU PROJET -->
+    <header class="hero case-hero relative isolate overflow-hidden py-16 lg:py-28" aria-labelledby="project-title">
+      <div class="case-hero__media" aria-hidden="true">
+        <picture>
+          <source type="image/avif" srcset="../../assets/images/challenge-seniors-1200.avif 1200w, ../../assets/images/challenge-seniors-1600.avif 1600w" sizes="100vw">
+          <source type="image/webp" srcset="../../assets/images/challenge-seniors-1200.webp 1200w, ../../assets/images/challenge-seniors-1600.webp 1600w" sizes="100vw">
+          <img src="../../assets/images/challenge-seniors-1600.webp" width="1600" height="900" alt="" decoding="async" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="wrap">
+        <nav class="mb-6 animate-rise [animation-delay:40ms]" aria-label="Fil d’Ariane">
+          <ol class="flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-muted">
+            <li><a class="no-underline transition-colors hover:text-accent" href="../../index.html">Portfolio</a></li>
+            <li aria-hidden="true" class="text-faint">/</li>
+            <li><a class="no-underline transition-colors hover:text-accent" href="../../index.html#projets">Projets</a></li>
+            <li aria-hidden="true" class="text-faint">/</li>
+            <li class="text-accent" aria-current="page">Projet 01</li>
+          </ol>
+        </nav>
+
+        <p class="case__meta mb-5 flex animate-rise flex-wrap gap-x-[0.6rem] gap-y-[0.35rem] font-mono text-xs uppercase tracking-[0.08em] text-muted [animation-delay:120ms]">
+          <span class="font-medium text-accent">Challenge national</span>
+          <span>IUT de France × INSEE</span>
+          <span>21 mai 2026</span>
+          <span>Équipe de 4</span>
+          <span>1 journée</span>
+        </p>
+
+        <h1 class="title max-w-[22ch] animate-rise text-3xl [animation-delay:200ms]" id="project-title">Challenge Dataviz 2026 - <em>l’évolution démographique des régions françaises, 2016–2022</em></h1>
+
+        <p class="mt-6 max-w-[60ch] animate-rise text-lg text-pretty text-muted [animation-delay:300ms]">
+          En une journée, notre équipe de quatre a transformé les fichiers INSEE en une infographie Power BI d’une page,
+          pour répondre à une question simple&nbsp;: les régions françaises vieillissent-elles toutes de la même façon&nbsp;?
+        </p>
+
+        <div class="mt-8 flex animate-rise flex-wrap gap-3 [animation-delay:400ms]">
+          <a class="btn" href="../../assets/docs/rapport-challenge-dataviz-2026.pdf" download>
+            <svg class="btn__icon" aria-hidden="true" focusable="false"><use href="#icon-download"/></svg>
+            Télécharger le rapport <span class="ml-1 font-mono text-xs font-normal opacity-70">PDF · 250 Ko</span>
+          </a>
+          <a class="btn btn--secondary" href="#dashboard">Voir le dashboard <svg class="btn__icon" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+        </div>
+
+        <dl class="card mt-12 grid animate-rise gap-x-6 gap-y-5 p-6 [animation-delay:500ms] sm:grid-cols-2 lg:grid-cols-6">
+          <div><dt class="label text-faint">Rôle</dt><dd class="mt-1 text-sm font-medium">Données, visuels Power BI, rapport</dd></div>
+          <div><dt class="label text-faint">Outils</dt><dd class="mt-1 text-sm font-medium">Excel · Power BI Desktop</dd></div>
+          <div><dt class="label text-faint">Données</dt><dd class="mt-1 text-sm font-medium">INSEE · 18 régions · 2016 et 2022</dd></div>
+          <div><dt class="label text-faint">Durée</dt><dd class="mt-1 text-sm font-medium">1 journée (9h – 16h)</dd></div>
+          <div><dt class="label text-faint">Équipe</dt><dd class="mt-1 text-sm font-medium">4 étudiants, IUT de Paris</dd></div>
+          <div><dt class="label text-faint">Livrable</dt><dd class="mt-1 text-sm font-medium">Infographie 1 page + rapport</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <!-- ============================================================ CONTEXTE -->
+    <section class="section" id="contexte" aria-labelledby="contexte-title">
+      <div class="wrap reveal grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-24">
+        <div>
+          <p class="fig-label"><span class="fig-label__num">01</span> Contexte</p>
+          <h2 class="title max-w-[16ch] text-2xl" id="contexte-title">Une journée, une question, <em>18 régions.</em></h2>
+        </div>
+        <div class="max-w-[62ch] text-muted [&_p+p]:mt-4">
+          <p>
+            Le Challenge Dataviz 2026 est organisé par les départements Science des Données des IUT de France,
+            en partenariat avec l’INSEE. Plus de 600 étudiants de 1<sup>re</sup> année de BUT SD, répartis dans
+            15 départements, ont travaillé sur une problématique commune autour de l’analyse démographique des territoires.
+          </p>
+          <p>
+            Notre groupe - quatre étudiants du département SD de l’IUT de Paris – Rives de Seine - disposait d’une
+            journée entière, le 21 mai 2026 de 9h à 16h, pour livrer une infographie complète.
+          </p>
+          <blockquote class="my-6 rounded-r-sm border-l-2 border-accent bg-accent-soft px-6 py-4 font-display text-md font-medium leading-[1.4] tracking-[-0.01em] text-ink text-pretty">
+            <p>«&nbsp;Peut-on remarquer une évolution démographique différente par région entre 2016 et 2022&nbsp;?&nbsp;»</p>
+          </blockquote>
+          <p>
+            L’enjeu&nbsp;: transformer des données démographiques brutes en une infographie synthétique, lisible et
+            rigoureuse, permettant de comparer l’évolution de la structure par âge des régions françaises sur six ans.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ DONNÉES & OUTILS -->
+    <section class="section" id="donnees" aria-labelledby="donnees-title">
+      <div class="wrap">
+        <header class="reveal mb-[clamp(2.5rem,6vw,4.5rem)] grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-24">
+          <div>
+            <p class="fig-label"><span class="fig-label__num">02</span> Données &amp; outils</p>
+            <h2 class="title max-w-[18ch] text-2xl" id="donnees-title">Des fichiers INSEE <em>à l’infographie.</em></h2>
+          </div>
+          <p class="max-w-[44ch] text-md text-pretty text-muted">Deux outils, chacun avec un rôle défini dans la chaîne de production.</p>
+        </header>
+
+        <div class="reveal grid gap-6 lg:grid-cols-3">
+          <dl class="card flex flex-col justify-between p-6 lg:row-span-2">
+            <div class="border-b border-line pb-5"><dt class="label text-faint">Source</dt><dd class="mt-1 text-sm">Fichiers statistiques officiels de l’INSEE - évolutions démographiques par zone géographique et par tranche d’âge</dd></div>
+            <div class="border-b border-line py-5"><dt class="label text-faint">Périmètre</dt><dd class="mt-1 text-sm">18 régions françaises, métropole et DOM inclus · années 2016 et 2022</dd></div>
+            <div class="pt-5"><dt class="label text-faint">Variables principales</dt><dd class="mt-1 text-sm">Population totale · jeunes adultes (moins de 30 ans) · personnes âgées (plus de 60 ans)</dd></div>
+          </dl>
+
+          <div class="card p-6 lg:col-span-2">
+            <p class="label mb-3"><span class="font-medium text-accent">Étape 1</span> · Excel</p>
+            <h3 class="font-display text-md font-semibold tracking-[-0.01em]">Nettoyer, structurer, vérifier</h3>
+            <ul class="mt-3 grid gap-2 text-sm text-muted sm:grid-cols-3 [&_li]:flex [&_li]:gap-2 [&_li]:before:mt-[0.55em] [&_li]:before:size-1.5 [&_li]:before:shrink-0 [&_li]:before:rounded-full [&_li]:before:bg-accent [&_li]:before:content-['']">
+              <li>Nettoyage et structuration des données brutes issues des fichiers INSEE</li>
+              <li>Préparation des agrégats par région et par tranche d’âge</li>
+              <li>Vérification de la cohérence des indicateurs avant restitution</li>
+            </ul>
+          </div>
+
+          <div class="card p-6 lg:col-span-2">
+            <p class="label mb-3"><span class="font-medium text-accent">Étape 2</span> · Power BI Desktop</p>
+            <h3 class="font-display text-md font-semibold tracking-[-0.01em]">Construire l’infographie sur une page</h3>
+            <ul class="mt-3 grid gap-2 text-sm text-muted sm:grid-cols-2 [&_li]:flex [&_li]:gap-2 [&_li]:before:mt-[0.55em] [&_li]:before:size-1.5 [&_li]:before:shrink-0 [&_li]:before:rounded-full [&_li]:before:bg-accent [&_li]:before:content-['']">
+              <li>Infographie finale sur une page unique, conformément aux exigences du challenge</li>
+              <li>Graphiques en barres comparatifs pour 2016 et 2022</li>
+              <li>Cartographie de la répartition démographique moyenne par région</li>
+              <li>Trois indicateurs clés (KPI) en bas de page</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ DASHBOARD -->
+    <section class="section" id="dashboard" aria-labelledby="dashboard-title">
+      <div class="wrap">
+        <header class="reveal mb-[clamp(2.5rem,6vw,4.5rem)] grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-24">
+          <div>
+            <p class="fig-label"><span class="fig-label__num">03</span> Dashboard</p>
+            <h2 class="title max-w-[18ch] text-2xl" id="dashboard-title">Le livrable, <em>reconstruit en interactif.</em></h2>
+          </div>
+          <p class="max-w-[44ch] text-md text-pretty text-muted">L’infographie Power BI du challenge, recodée en HTML, CSS et JavaScript&nbsp;: choisissez l’année et l’indicateur, survolez les régions.</p>
+        </header>
+
+        <div class="dv card reveal relative overflow-hidden p-4 md:p-6 lg:p-8" data-dataviz="demographie" data-base="../../">
+          <div class="dv__controls mb-4 flex flex-wrap items-center gap-3">
+            <div class="dv__seg" role="group" aria-label="Année affichée sur la carte">
+              <button type="button" class="dv__btn" data-year="2016" aria-pressed="false">2016</button>
+              <button type="button" class="dv__btn is-active" data-year="2022" aria-pressed="true">2022</button>
+            </div>
+            <div class="dv__seg" role="group" aria-label="Indicateur">
+              <button type="button" class="dv__btn is-active" data-metric="pop" aria-pressed="true">Population</button>
+              <button type="button" class="dv__btn" data-metric="young" aria-pressed="false">Moins de 30 ans</button>
+              <button type="button" class="dv__btn" data-metric="old" aria-pressed="false">Plus de 60 ans</button>
+              <button type="button" class="dv__btn" data-metric="oldShare" aria-pressed="false">Part des 60+</button>
+            </div>
+          </div>
+          <ul class="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <li class="rounded-sm border border-line bg-surface-alt p-4"><span class="block font-display text-2xl font-bold leading-none tracking-[-0.03em] text-accent" data-kpi="pop2016">…</span><span class="block text-xs leading-snug text-muted">habitants en France en 2016</span></li>
+            <li class="rounded-sm border border-line bg-surface-alt p-4"><span class="block font-display text-2xl font-bold leading-none tracking-[-0.03em] text-accent" data-kpi="pop2022">…</span><span class="block text-xs leading-snug text-muted">habitants en France en 2022</span></li>
+            <li class="rounded-sm border border-line bg-surface-alt p-4"><span class="block font-display text-2xl font-bold leading-none tracking-[-0.03em] text-accent" data-kpi="deltaOld">…</span><span class="block text-xs leading-snug text-muted">personnes de plus de 60 ans en plus entre 2016 et 2022</span></li>
+            <li class="rounded-sm border border-line bg-surface-alt p-4"><span class="block font-display text-2xl font-bold leading-none tracking-[-0.03em] text-accent" data-kpi="regionsAging">…</span><span class="block text-xs leading-snug text-muted">régions où la part des plus de 60 ans progresse</span></li>
+          </ul>
+
+          <div class="grid gap-4 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)]">
+            <figure class="dv__panel">
+              <figcaption class="label mb-2"><span data-current-metric>Population totale</span> par région · <span data-current-year>2022</span></figcaption>
+              <div class="dv__map" role="img" aria-label="Carte des 18 régions françaises, encarts pour les cinq départements d’outre-mer, bulles proportionnelles à l’indicateur choisi."></div>
+              <p class="dv__legend"></p>
+            </figure>
+            <figure class="dv__panel">
+              <figcaption class="label mb-2">2016 vs 2022 · 18 régions, triées sur 2022</figcaption>
+              <div class="dv__bars-wrap"><canvas class="dv__bars" role="img" aria-label="Graphique en barres comparant 2016 et 2022 pour les 18 régions selon l’indicateur choisi."></canvas></div>
+            </figure>
+          </div>
+
+          <details class="dv__data mt-4">
+            <summary class="cursor-pointer font-mono text-xs uppercase tracking-[0.12em] text-muted transition-colors hover:text-accent">Voir les données du graphique</summary>
+            <div class="mt-3 overflow-x-auto"><table class="dv__table w-full min-w-[40rem]"></table></div>
+          </details>
+          <p class="dv__fallback mt-4 text-xs text-muted" hidden>Infographie interactive indisponible (données non chargées). La capture du dashboard original ci-dessous et le rapport PDF restent accessibles.</p>
+          <p class="mt-4 font-mono text-[0.65rem] leading-snug text-faint">Source&nbsp;: INSEE, estimations de population au 1<sup>er</sup> janvier par région et tranche d’âge - valeurs arrondies au millier. Reconstruction en D3 et Chart.js de l’infographie réalisée sous Power BI pendant le challenge.</p>
+          <div class="dv__tooltip" role="tooltip" hidden></div>
+        </div>
+
+        <figure class="figure-frame figure-frame--media reveal mt-10">
+          <p class="flex items-center gap-3 border-b border-line bg-surface-alt px-4 py-[0.55rem] font-mono text-xs tracking-[0.02em] text-muted" aria-hidden="true"><span class="screen__dots inline-flex gap-[5px]"><i></i><i></i><i></i></span> challenge-dataviz-2026.pbix - Power BI Desktop · capture originale</p>
+          <picture>
+            <source type="image/avif" srcset="../../assets/images/dashboard-challenge-dataviz-800.avif 800w, ../../assets/images/dashboard-challenge-dataviz-1200.avif 1200w, ../../assets/images/dashboard-challenge-dataviz-1600.avif 1600w" sizes="(min-width: 80rem) 72rem, 100vw">
+            <source type="image/webp" srcset="../../assets/images/dashboard-challenge-dataviz-800.webp 800w, ../../assets/images/dashboard-challenge-dataviz-1200.webp 1200w, ../../assets/images/dashboard-challenge-dataviz-1600.webp 1600w" sizes="(min-width: 80rem) 72rem, 100vw">
+            <img class="w-full" src="../../assets/images/dashboard-challenge-dataviz-1600.webp" width="1660" height="960" alt="Capture du dashboard Power BI original du Challenge Dataviz 2026 : deux graphiques en barres comparant, par région, les jeunes adultes et les plus de 60 ans en 2016 et 2022, une carte de France de la répartition démographique moyenne et trois indicateurs clés." loading="lazy" decoding="async">
+          </picture>
+          <figcaption class="figure-caption px-4 py-3 text-xs leading-normal text-muted"><span class="mono-num">03.1</span> L’infographie livrée le jour du challenge, sous Power BI Desktop</figcaption>
+        </figure>
+
+        <ol class="reveal mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <li class="card p-5"><span class="label block font-medium text-accent">Axe 1</span><p class="mt-2 text-sm text-muted">Taille de la population par région en 2016, jeunes adultes et personnes âgées distingués.</p></li>
+          <li class="card p-5"><span class="label block font-medium text-accent">Axe 2</span><p class="mt-2 text-sm text-muted">Même comparaison en 2022, avec les mêmes catégories, pour lire l’évolution région par région.</p></li>
+          <li class="card p-5"><span class="label block font-medium text-accent">Axe 3</span><p class="mt-2 text-sm text-muted">Évolution nationale de la population des plus de 60 ans entre 2016 et 2022.</p></li>
+          <li class="card p-5"><span class="label block font-medium text-accent">Axe 4</span><p class="mt-2 text-sm text-muted">Cartographie de la répartition démographique moyenne par région sur les deux années.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ RÉSULTATS -->
+    <section class="section" id="resultats" aria-labelledby="resultats-title">
+      <div class="wrap">
+        <header class="reveal mb-[clamp(2.5rem,6vw,4.5rem)] grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-24">
+          <div>
+            <p class="fig-label"><span class="fig-label__num">04</span> Résultats</p>
+            <h2 class="title max-w-[18ch] text-2xl" id="resultats-title">Ce que disent <em>les données.</em></h2>
+          </div>
+          <p class="max-w-[44ch] text-md text-pretty text-muted">Trois tendances majeures sur la période 2016–2022.</p>
+        </header>
+
+        <ul class="reveal grid gap-3 sm:grid-cols-3">
+          <li class="card flex flex-col justify-between gap-3 bg-surface-alt p-5"><span class="block whitespace-nowrap font-display text-[clamp(1.5rem,2.6vw,2.25rem)] font-bold leading-none tracking-[-0.03em] text-accent">66,4 → 67,8 <abbr title="millions">M</abbr></span><span class="block text-xs leading-snug text-muted">habitants en France, 2016 → 2022</span></li>
+          <li class="card flex flex-col justify-between gap-3 bg-surface-alt p-5"><span class="block whitespace-nowrap font-display text-[clamp(1.5rem,2.6vw,2.25rem)] font-bold leading-none tracking-[-0.03em] text-accent">+1,4 <abbr title="millions">M</abbr></span><span class="block text-xs leading-snug text-muted">habitants en six ans</span></li>
+          <li class="card flex flex-col justify-between gap-3 bg-surface-alt p-5"><span class="block whitespace-nowrap font-display text-[clamp(1.5rem,2.6vw,2.25rem)] font-bold leading-none tracking-[-0.03em] text-accent">18 / 18</span><span class="block text-xs leading-snug text-muted">régions concernées par le vieillissement</span></li>
+        </ul>
+
+        <div class="reveal mt-6 grid gap-4 lg:grid-cols-3">
+          <article class="card p-6">
+            <h3 class="font-display text-md font-semibold tracking-[-0.01em]">Croissance de la population nationale</h3>
+            <p class="mt-2 text-sm text-muted">La population française est passée de 66,4 millions d’habitants en 2016 à 67,8 millions en 2022, soit une hausse de 1,4 million sur six ans.</p>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-display text-md font-semibold tracking-[-0.01em]">Vieillissement démographique marqué</h3>
+            <p class="mt-2 text-sm text-muted">La population des plus de 60 ans progresse nettement entre 2016 et 2022, illustrant une tendance de fond au vieillissement de la population française.</p>
+          </article>
+          <article class="card p-6">
+            <h3 class="font-display text-md font-semibold tracking-[-0.01em]">Tendance homogène sur tout le territoire</h3>
+            <p class="mt-2 text-sm text-muted">Le vieillissement se retrouve dans toutes les régions sans exception. En Île-de-France, la part des personnes âgées augmente alors que les jeunes adultes restent stables autour de 5 millions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ RÔLE & APPRENTISSAGES -->
+    <section class="section" id="role" aria-labelledby="role-title">
+      <div class="wrap reveal grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-24">
+        <div>
+          <p class="fig-label"><span class="fig-label__num">05</span> Mon rôle</p>
+          <h2 class="title max-w-[16ch] text-2xl" id="role-title">Ma part <em>du travail.</em></h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="card p-6">
+            <h3 class="label mb-3 font-medium">Ce que j’ai fait</h3>
+            <ul class="grid gap-2 text-sm text-muted [&_li]:flex [&_li]:gap-2 [&_li]:before:mt-[0.55em] [&_li]:before:size-1.5 [&_li]:before:shrink-0 [&_li]:before:rounded-full [&_li]:before:bg-accent [&_li]:before:content-['']">
+              <li>Préparation et contrôle des données INSEE dans Excel</li>
+              <li>Construction des visuels Power BI&nbsp;: barres comparatives, carte, indicateurs clés</li>
+              <li>Rédaction du rapport de projet</li>
+              <li>Coordination avec l’équipe pour tenir le format « une page » dans le temps imparti</li>
+            </ul>
+          </div>
+          <div class="card p-6">
+            <h3 class="label mb-3 font-medium">Ce que j’en retiens</h3>
+            <ul class="grid gap-2 text-sm text-muted [&_li]:flex [&_li]:gap-2 [&_li]:before:mt-[0.55em] [&_li]:before:size-1.5 [&_li]:before:shrink-0 [&_li]:before:rounded-full [&_li]:before:bg-accent [&_li]:before:content-['']">
+              <li>Produire un livrable rigoureux et lisible sous forte contrainte de temps</li>
+              <li>Passer de données brutes à une infographie orientée décision</li>
+              <li>Répartir le travail en équipe et converger vers un seul support</li>
+              <li>Renforcer ma maîtrise de Power BI en conditions réelles</li>
+            </ul>
+          </div>
+          <p class="text-sm text-muted md:col-span-2"><span class="label text-faint">Équipe</span><br>Losseni Zouri, Sezgin Aydin, Loïc Zhang et Aaron Biyoo - département Science des Données, IUT de Paris – Rives de Seine.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ TÉLÉCHARGEMENT -->
+    <section class="section" id="telecharger" aria-labelledby="telecharger-title">
+      <div class="wrap">
+        <div class="contact-panel reveal relative overflow-hidden rounded-lg border border-line-strong bg-surface p-[clamp(2rem,5vw,4rem)] [&>*]:relative">
+          <p class="fig-label"><span class="fig-label__num">06</span> Rapport</p>
+          <h2 class="title max-w-[18ch] text-2xl" id="telecharger-title">Le rapport complet, <em>en PDF.</em></h2>
+          <p class="mt-4 max-w-[56ch] text-md text-pretty text-muted">Contexte, organisation, description des données, dashboard et résultats clés - trois pages, 250 Ko.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="btn btn--lg" href="../../assets/docs/rapport-challenge-dataviz-2026.pdf" download>
+              <svg class="btn__icon" aria-hidden="true" focusable="false"><use href="#icon-download"/></svg>
+              Télécharger le rapport
+            </a>
+            <a class="btn btn--secondary btn--lg" href="../../assets/docs/rapport-challenge-dataviz-2026.pdf" target="_blank" rel="noopener">
+              Ouvrir dans un nouvel onglet <svg class="btn__icon" aria-hidden="true" focusable="false"><use href="#icon-external"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <nav class="mt-10 flex flex-wrap items-center justify-between gap-4 text-sm" aria-label="Navigation entre projets">
+          <a class="inline-flex items-center gap-2 text-muted no-underline transition-colors hover:text-accent" href="../../index.html#projets"><svg class="size-4" aria-hidden="true" focusable="false"><use href="#icon-arrow-left"/></svg> Tous les projets</a>
+          <a class="inline-flex items-center gap-2 no-underline transition-colors hover:text-accent" href="../enquete-pratiques-culturelles/index.html">Projet suivant&nbsp;: Enquête sur les pratiques culturelles <svg class="size-4" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+        </nav>
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<footer class="border-t border-line py-6 text-xs text-muted">
+  <div class="wrap flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
+    <p>© 2026 Losseni Zouri · Étudiant en BUT Science des Données - Université Paris Cité</p>
+    <nav class="flex flex-wrap gap-x-6 gap-y-4 [&_a]:text-muted [&_a]:no-underline [&_a:hover]:text-accent [&_a:hover]:underline" aria-label="Liens de pied de page">
+      <a href="../../index.html">Portfolio</a>
+      <a href="mailto:losseni.zouri@etu.u-paris.fr">E-mail</a>
+      <a href="https://www.linkedin.com/in/losseni-zouri-160716253/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Losseni-ZOURI" target="_blank" rel="noopener">GitHub</a>
+      <a href="../../assets/docs/cv-losseni-zouri.pdf" target="_blank" rel="noopener">CV</a>
+      <a class="site-footer__top" href="#top">Haut de page ↑</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

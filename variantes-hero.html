@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Variantes d’animation du hero - Losseni Zouri</title>
+  <meta name="description" content="Comparaison des scènes animées possibles pour le hero du portfolio.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0A0D17">
+
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <link rel="preload" href="assets/fonts/sora-400-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-400-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/hero-glyphs.js" defer></script>
+  <script src="assets/js/cursor-data.js" defer></script>
+  <script src="assets/js/lab.js" defer></script>
+</head>
+<body>
+
+<svg hidden aria-hidden="true" focusable="false">
+  <symbol id="icon-arrow" viewBox="0 0 20 20"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-download" viewBox="0 0 20 20"><path d="M10 3v9m0 0 3.5-3.5M10 12 6.5 8.5M4 14.5v1A1.5 1.5 0 0 0 5.5 17h9a1.5 1.5 0 0 0 1.5-1.5v-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="border-b border-line">
+  <div class="wrap flex flex-wrap items-center justify-between gap-4 py-5">
+    <a class="link inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-muted" href="index.html">
+      <svg class="size-4 rotate-180" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+      Retour au portfolio
+    </a>
+    <p class="font-mono text-xs uppercase tracking-[0.14em] text-faint">Page de travail · non indexée</p>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <!-- ============================================================== HERO -->
+  <section class="hero relative isolate flex min-h-[100svh] items-center overflow-hidden pb-32 pt-16" aria-labelledby="hero-title">
+    <canvas class="hero-canvas pointer-events-none absolute inset-0 -z-10 h-full w-full" aria-hidden="true" hidden></canvas>
+    <canvas class="hero-glyphs pointer-events-none absolute inset-0 -z-10 h-full w-full" aria-hidden="true"></canvas>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+
+    <div class="wrap relative text-center">
+      <p class="status-pill animate-rise [animation-delay:60ms]">
+        <span class="status-pill__dot" aria-hidden="true"></span>
+        Disponible en alternance <span class="text-faint" aria-hidden="true">·</span> dès septembre 2026 <span class="text-faint" aria-hidden="true">·</span> Île-de-France
+      </p>
+
+      <h1 class="title hero-title mt-8 [text-shadow:0_2px_24px_color-mix(in_srgb,var(--color-bg)_80%,transparent)]" id="hero-title" aria-label="Losseni Zouri">
+        <span class="js-decode block animate-rise [animation-delay:140ms] lg:inline" data-text="Losseni">Losseni</span>
+        <span class="js-decode text-gradient text-gradient--warm block animate-rise [animation-delay:220ms] [text-shadow:none] lg:inline" data-text="Zouri">Zouri</span>
+      </h1>
+
+      <p class="mt-6 animate-rise font-mono text-xs uppercase tracking-[0.22em] text-accent [animation-delay:300ms] sm:text-sm">
+        Data Analyst en formation <span class="text-faint" aria-hidden="true">·</span> BUT Science des Données
+      </p>
+
+      <p class="js-words mx-auto mt-6 max-w-[54ch] text-lg text-pretty text-muted [text-shadow:0_1px_12px_color-mix(in_srgb,var(--color-bg)_80%,transparent)]">
+        Étudiant à l’IUT de Paris – Rives de Seine (Université Paris Cité), je transforme des données brutes
+        en analyses claires et en décisions.
+      </p>
+
+      <div class="mt-10 flex animate-rise flex-wrap justify-center gap-3 [animation-delay:480ms]">
+        <a class="btn btn--lg" href="#detail">Voir mes projets <svg class="btn__icon" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+        <a class="btn btn--secondary btn--lg" href="#detail">Me contacter</a>
+      </div>
+      <p class="mt-5 animate-rise [animation-delay:560ms]">
+        <a class="link inline-flex items-center gap-2 text-sm text-muted" href="assets/docs/cv-losseni-zouri.pdf" download><svg class="size-4" aria-hidden="true" focusable="false"><use href="#icon-download"/></svg> Télécharger mon CV</a>
+      </p>
+    </div>
+
+    <div class="absolute inset-x-0 bottom-6 z-10 flex justify-center px-gutter">
+      <div class="flex flex-wrap items-center justify-center gap-3 rounded-lg border border-line-strong bg-surface/90 px-3 py-2 backdrop-blur-md">
+        <p class="label pl-1 text-faint" id="scene-label">Scène</p>
+        <div class="dv__seg" role="group" aria-labelledby="scene-label">
+          <button type="button" class="dv__btn is-active" data-scene="glyphs" aria-pressed="true">B · Champ de glyphes</button>
+          <button type="button" class="dv__btn" data-scene="surface" aria-pressed="false">A · Surface de densité</button>
+        </div>
+        <button type="button" class="dv__btn" data-cursor aria-pressed="false">Curseur de mesure</button>
+        <p class="pr-1 font-mono text-xs text-faint"><span data-fps>-</span> i/s <span class="text-line-strong" aria-hidden="true">·</span> <span data-nodes>-</span> glyphes</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ DÉTAIL -->
+  <section class="section" id="detail" aria-labelledby="detail-title">
+    <div class="wrap">
+      <p class="fig-label"><span class="fig-label__num">01</span> Scène B</p>
+      <h2 class="title max-w-[22ch] text-2xl" id="detail-title">Un champ de données <em>qui se met à parler.</em></h2>
+
+      <div class="mt-10 grid gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+        <div class="max-w-[62ch] space-y-4 text-md text-pretty text-muted">
+          <p>
+            Un nuage de glyphes tourne lentement en perspective. Chaque nœud affiche un chiffre qui se ré-tire
+            au hasard, comme un flux brut qui défile. Toutes les quelques secondes, une poignée de nœuds
+            cristallise&nbsp;: ils s’alignent, décodent un terme du métier - moyenne, variance, corrélation,
+            échantillon - puis se dispersent et redeviennent des chiffres.
+          </p>
+          <p>
+            Le mot reste horizontal et lisible pendant que le champ continue de tourner autour de lui. C’est
+            l’effet le plus difficile de la scène&nbsp;: les positions visées sont calculées dans le repère de la
+            caméra, puis ramenées dans le repère du nuage par rotation inverse, à chaque image.
+          </p>
+          <p>
+            La formation du mot est un vrai décryptage&nbsp;: les glyphes défilent de plus en plus vite parmi les
+            chiffres et les symboles de la statistique, un fil accent relie chaque nœud à sa place, puis les
+            lettres se verrouillent une à une de gauche à droite, chacune avec un éclat. Quand la dernière tombe,
+            une onde part du mot et rallume le réseau sur son passage.
+          </p>
+          <p>
+            S’y ajoutent trois détails qui font vivre l’ensemble&nbsp;: un réseau de liens dont l’opacité suit la
+            profondeur, de petits paquets qui circulent le long des arêtes, et un halo qui suit le pointeur en
+            éclairant les glyphes proches et en accélérant leurs tirages.
+          </p>
+        </div>
+
+        <aside class="card h-fit p-6">
+          <p class="label text-faint">Ce que ça raconte</p>
+          <p class="mt-3 text-sm leading-[1.7] text-muted">
+            Le passage du chiffre au mot, c’est exactement ton métier&nbsp;: transformer de la donnée brute en
+            information lisible. L’animation dit la promesse du portfolio avant même qu’on lise le texte.
+          </p>
+          <p class="mt-4 border-t border-line pt-4 text-sm leading-[1.7] text-muted">
+            Les termes affichés sont ceux que tu pratiques réellement. Aucun jargon décoratif.
+          </p>
+        </aside>
+      </div>
+
+      <h3 class="title mt-16 text-lg">Deux interactions à juger</h3>
+      <div class="mt-6 grid gap-4 lg:grid-cols-2">
+        <article class="card p-6 md:p-8">
+          <p class="label text-accent">Au clic · échantillonnage</p>
+          <p class="mt-3 text-sm leading-[1.7] text-muted">
+            Clique n’importe où dans le hero. Les chiffres autour du point sont prélevés, quittent le nuage et
+            se rangent en histogramme, une colonne par valeur de 0 à 9. Sous l’axe s’affichent l’effectif, la
+            moyenne et l’écart-type - calculés sur les chiffres réellement prélevés, pas décoratifs. Après deux
+            secondes et demie, l’échantillon retourne dans le champ.
+          </p>
+          <p class="mt-4 border-t border-line pt-4 text-sm leading-[1.7] text-muted">
+            C’est le geste du métier en une seconde&nbsp;: prélever, compter, résumer.
+          </p>
+        </article>
+        <article class="card p-6 md:p-8">
+          <p class="label text-accent">Curseur · réticule de mesure</p>
+          <p class="mt-3 text-sm leading-[1.7] text-muted">
+            Active-le avec le bouton du hero. Un point exact reste collé au pointeur, un anneau le suit avec un
+            léger retard, deux ticks d’axe apparaissent au-dessus de la scène avec la lecture des coordonnées.
+            Au survol d’un lien, le réticule se referme en cible pleine&nbsp;; dans un champ de saisie, le curseur
+            système revient.
+          </p>
+          <p class="mt-4 border-t border-line pt-4 text-sm leading-[1.7] text-muted">
+            Réservé au pointeur fin. Sur mobile et sur tablette, rien ne change.
+          </p>
+        </article>
+      </div>
+
+      <h3 class="title mt-16 text-lg">Choix techniques</h3>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="card p-5">
+          <p class="label text-accent">Aucune dépendance</p>
+          <p class="mt-2 text-sm leading-[1.65] text-muted">Canvas 2D et projection perspective écrite à la main. Pas de trois.js à charger, cohérent avec le reste du site.</p>
+        </article>
+        <article class="card p-5">
+          <p class="label text-accent">Budget d’image</p>
+          <p class="mt-2 text-sm leading-[1.65] text-muted">150 glyphes en grand écran, 70 en mobile, densité de pixels plafonnée. Si la cadence descend sous 45 images par seconde, la scène s’allège d’elle-même.</p>
+        </article>
+        <article class="card p-5">
+          <p class="label text-accent">Mouvement respecté</p>
+          <p class="mt-2 text-sm leading-[1.65] text-muted">Pause hors écran et onglet inactif. En mouvement réduit, une seule image fixe est dessinée, sans boucle.</p>
+        </article>
+        <article class="card p-5">
+          <p class="label text-accent">Thème suivi</p>
+          <p class="mt-2 text-sm leading-[1.65] text-muted">Les couleurs sont lues dans les variables du design system. Change la palette dans le Lab, la scène suit immédiatement.</p>
+        </article>
+      </div>
+
+      <h3 class="title mt-16 text-lg">Ce que la scène B change par rapport à l’actuelle</h3>
+      <div class="mt-6 overflow-x-auto rounded-lg border border-line">
+        <table class="w-full min-w-[42rem] border-collapse text-left text-sm">
+          <caption class="sr-only">Comparaison des deux scènes de hero</caption>
+          <thead>
+            <tr class="border-b border-line bg-surface-alt">
+              <th scope="col" class="p-4 font-mono text-xs uppercase tracking-[0.1em] text-faint">Critère</th>
+              <th scope="col" class="p-4 font-mono text-xs uppercase tracking-[0.1em] text-faint">A · Surface de densité</th>
+              <th scope="col" class="p-4 font-mono text-xs uppercase tracking-[0.1em] text-faint">B · Champ de glyphes</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-line"><th scope="row" class="p-4 font-semibold text-ink">Message</th><td class="p-4">Une distribution statistique, abstraite</td><td class="p-4">Le chiffre qui devient un mot</td></tr>
+            <tr class="border-b border-line"><th scope="row" class="p-4 font-semibold text-ink">Lecture du titre</th><td class="p-4">Très calme, aucun risque</td><td class="p-4">Bande centrale creusée, mots rejetés en haut et en bas</td></tr>
+            <tr class="border-b border-line"><th scope="row" class="p-4 font-semibold text-ink">Rythme</th><td class="p-4">Continu et régulier</td><td class="p-4">Respiration : le champ défile, un mot se forme, puis se dissout</td></tr>
+            <tr class="border-b border-line"><th scope="row" class="p-4 font-semibold text-ink">Coût</th><td class="p-4">Cercles pleins, très peu coûteux</td><td class="p-4">Texte, plus coûteux, d’où le plafond de glyphes</td></tr>
+            <tr><th scope="row" class="p-4 font-semibold text-ink">Risque</th><td class="p-4">Peut passer inaperçue</td><td class="p-4">Doit rester discrète pour ne pas concurrencer le titre</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-10 grid gap-4 lg:grid-cols-2">
+        <article class="card p-6 md:p-8">
+          <p class="label text-accent">Ma recommandation</p>
+          <h3 class="title mt-3 text-lg">La scène B, à intensité réduite</h3>
+          <p class="mt-4 text-sm leading-[1.7] text-muted">
+            Elle porte un sens, ce que la surface actuelle ne fait pas, et c’est le premier écran que verra un
+            recruteur. Deux réglages à valider ensemble&nbsp;: la fréquence d’apparition des mots, entre trois et
+            six secondes, et l’opacité générale du champ. Trop présente, elle vole la vedette au nom.
+          </p>
+        </article>
+        <article class="card p-6 md:p-8">
+          <p class="label text-faint">Réglages possibles</p>
+          <ul class="mt-4 grid gap-3 text-sm leading-[1.65] text-muted">
+            <li class="border-l border-line pl-4">Mots simultanés&nbsp;: un seul aujourd’hui, deux est possible sur grand écran.</li>
+            <li class="border-l border-line pl-4">Vocabulaire&nbsp;: la liste des termes se modifie en une ligne dans le fichier de la scène.</li>
+            <li class="border-l border-line pl-4">Densité du réseau&nbsp;: deux liens par nœud, montable à trois pour un rendu plus dense.</li>
+            <li class="border-l border-line pl-4">Durée de l’échantillon au clic&nbsp;: deux secondes et demie aujourd’hui.</li>
+            <li class="border-l border-line pl-4">Curseur&nbsp;: garder ou non la lecture des coordonnées, qui peut faire gadget hors du hero.</li>
+            <li class="border-l border-line pl-4">Version WebGL avec trois.js si tu veux beaucoup plus de glyphes, au prix d’environ 150 Ko de librairie.</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="mt-10 border-t border-line pt-6 font-mono text-xs leading-relaxed text-muted">
+        Page temporaire, non indexée et absente de la navigation. La scène vit dans <span class="text-ink">assets/js/hero-glyphs.js</span> et
+        n’est pas encore branchée sur l’accueil.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- Bascule entre les deux scènes et compteur d'images : propre à cette page de
+     comparaison, elle ne partira pas en production avec le reste. -->
+<script>
+(function () {
+  'use strict';
+  const buttons = document.querySelectorAll('[data-scene]');
+  const surface = document.querySelector('.hero-canvas');
+  const glyphs = document.querySelector('.hero-glyphs');
+  const fpsOut = document.querySelector('[data-fps]');
+  const nodesOut = document.querySelector('[data-nodes]');
+
+  function select(scene) {
+    const wantGlyphs = scene === 'glyphs';
+    glyphs.hidden = !wantGlyphs;
+    surface.hidden = wantGlyphs;
+    if (window.LZ_HERO_GLYPHS) {
+      if (wantGlyphs) window.LZ_HERO_GLYPHS.resume(); else window.LZ_HERO_GLYPHS.pause();
+    }
+    buttons.forEach(function (b) {
+      const on = b.getAttribute('data-scene') === scene;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+    window.dispatchEvent(new Event('resize'));
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { select(b.getAttribute('data-scene')); });
+  });
+
+  const cursorBtn = document.querySelector('[data-cursor]');
+  if (cursorBtn) {
+    window.setTimeout(function () {
+      const on = Boolean(window.LZ_CURSOR && window.LZ_CURSOR.enabled());
+      cursorBtn.classList.toggle('is-active', on);
+      cursorBtn.setAttribute('aria-pressed', String(on));
+    }, 0);
+    cursorBtn.addEventListener('click', function () {
+      if (!window.LZ_CURSOR) return;
+      const on = window.LZ_CURSOR.toggle();
+      cursorBtn.classList.toggle('is-active', on);
+      cursorBtn.setAttribute('aria-pressed', String(on));
+    });
+  }
+
+  window.setInterval(function () {
+    if (!window.LZ_HERO_GLYPHS || glyphs.hidden) { fpsOut.textContent = '-'; return; }
+    const s = window.LZ_HERO_GLYPHS.stats();
+    fpsOut.textContent = s.fps || '-';
+    nodesOut.textContent = s.nodes;
+  }, 1000);
+})();
+</script>
+
+</body>
+</html>

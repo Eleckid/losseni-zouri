@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Variantes de cartes projet - Losseni Zouri</title>
+  <meta name="description" content="Six dispositions possibles pour les cartes projet du portfolio, à comparer avant arbitrage.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0A0D17">
+
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <link rel="preload" href="assets/fonts/sora-400-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-sans-400-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/lab.js" defer></script>
+</head>
+<body>
+
+<svg hidden aria-hidden="true" focusable="false">
+  <symbol id="icon-arrow" viewBox="0 0 20 20"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-download" viewBox="0 0 20 20"><path d="M10 3v9m0 0 3.5-3.5M10 12 6.5 8.5M4 14.5v1A1.5 1.5 0 0 0 5.5 17h9a1.5 1.5 0 0 0 1.5-1.5v-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-chevron" viewBox="0 0 20 20"><path d="m5 8 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="border-b border-line">
+  <div class="wrap flex flex-wrap items-center justify-between gap-4 py-5">
+    <a class="link inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-muted" href="index.html">
+      <svg class="size-4 rotate-180" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+      Retour au portfolio
+    </a>
+    <p class="font-mono text-xs uppercase tracking-[0.14em] text-faint">Page de travail · non indexée</p>
+  </div>
+</header>
+
+<main id="contenu">
+
+  <!-- ============================================================= INTRO -->
+  <section class="section pb-0">
+    <div class="wrap">
+      <p class="fig-label"><span class="fig-label__num">00</span> Comparatif</p>
+      <h1 class="title max-w-[20ch] text-2xl">Six façons de <em>montrer moins.</em></h1>
+      <div class="mt-8 grid gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+        <div class="max-w-[62ch] space-y-4 text-md text-pretty text-muted">
+          <p>
+            La carte actuelle porte huit blocs d’information&nbsp;: méta, titre, description, trois indicateurs,
+            quatre étiquettes, deux boutons et l’infographie interactive. C’est beaucoup pour une page d’accueil,
+            dont le rôle est de donner envie d’ouvrir la page du projet, pas de la remplacer.
+          </p>
+          <p>
+            Chaque variante ci-dessous applique une règle&nbsp;: <strong class="font-semibold text-ink">un seul message
+            par carte</strong>. Le reste n’est pas supprimé, il descend d’un niveau, sur la page projet qui existe déjà.
+            Les six utilisent le contenu réel de tes deux projets, pas du texte factice.
+          </p>
+          <p>
+            Un point de décision revient dans chaque variante&nbsp;: l’infographie interactive reste-t-elle sur
+            l’accueil&nbsp;? C’est ton élément le plus différenciant, mais aussi le plus lourd. Trois variantes la
+            gardent en aperçu, trois la renvoient sur la page projet.
+          </p>
+        </div>
+        <aside class="card h-fit p-6">
+          <p class="label text-faint">Comment répondre</p>
+          <p class="mt-3 text-sm leading-[1.7] text-muted">
+            Donne-moi le numéro de la variante retenue, ou un mélange du type «&nbsp;la 5 avec les étiquettes de la
+            3&nbsp;». Je l’intègre ensuite à l’accueil et je supprime cette page.
+          </p>
+          <p class="mt-4 border-t border-line pt-4 text-sm leading-[1.7] text-muted">
+            Le bouton <span class="font-mono text-xs uppercase tracking-[0.12em] text-accent">Lab</span> fonctionne
+            aussi ici&nbsp;: tu peux juger chaque disposition dans la palette et la typographie que tu testes.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== VARIANTE 1 -->
+  <section class="section pb-0" id="v1" aria-labelledby="v1-title">
+    <div class="wrap">
+      <header class="max-w-[70ch]">
+        <p class="fig-label"><span class="fig-label__num">01</span> Index éditorial</p>
+        <h2 class="title text-xl" id="v1-title">Une ligne par projet</h2>
+        <p class="mt-4 text-md text-pretty text-muted">
+          Le format sommaire d’une revue. Le visiteur balaie la liste en deux secondes et clique.
+          C’est la version la plus radicale&nbsp;: la carte disparaît au profit d’une ligne.
+        </p>
+        <dl class="mt-6 grid gap-3 sm:grid-cols-3">
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Affiché</dt><dd class="mt-2 text-sm text-muted">Numéro, titre, contexte, année</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Retiré</dt><dd class="mt-2 text-sm text-muted">Description, indicateurs, étiquettes, boutons</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Infographie</dt><dd class="mt-2 text-sm text-muted">Sur la page projet</dd></div>
+        </dl>
+      </header>
+
+      <div class="mt-10 rounded-lg border border-line bg-bg-deep p-4 md:p-8">
+        <ol class="border-y border-line">
+          <li class="border-b border-line last:border-b-0">
+            <a class="group flex flex-wrap items-baseline gap-x-5 gap-y-1 px-3 py-6 no-underline transition-colors duration-200 hover:bg-surface-alt focus-visible:bg-surface-alt" href="projets/challenge-dataviz-2026/index.html">
+              <span class="font-mono text-xs text-faint">01</span>
+              <h3 class="title text-lg transition-colors duration-200 group-hover:text-accent">Challenge Dataviz 2026</h3>
+              <span class="ml-auto font-mono text-xs uppercase tracking-[0.1em] text-muted">Challenge national · Mai 2026</span>
+              <svg class="size-4 shrink-0 text-faint transition-[transform,color] duration-200 group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </a>
+          </li>
+          <li class="border-b border-line last:border-b-0">
+            <a class="group flex flex-wrap items-baseline gap-x-5 gap-y-1 px-3 py-6 no-underline transition-colors duration-200 hover:bg-surface-alt focus-visible:bg-surface-alt" href="projets/enquete-pratiques-culturelles/index.html">
+              <span class="font-mono text-xs text-faint">02</span>
+              <h3 class="title text-lg transition-colors duration-200 group-hover:text-accent">Enquête pratiques culturelles</h3>
+              <span class="ml-auto font-mono text-xs uppercase tracking-[0.1em] text-muted">Projet universitaire · 2025–2026</span>
+              <svg class="size-4 shrink-0 text-faint transition-[transform,color] duration-200 group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== VARIANTE 2 -->
+  <section class="section pb-0" id="v2" aria-labelledby="v2-title">
+    <div class="wrap">
+      <header class="max-w-[70ch]">
+        <p class="fig-label"><span class="fig-label__num">02</span> La question</p>
+        <h2 class="title text-xl" id="v2-title">La carte porte la question, pas le CV du projet</h2>
+        <p class="mt-4 text-md text-pretty text-muted">
+          Un analyste se juge sur les questions qu’il pose. La carte affiche la question traitée en grand,
+          la réponse en une phrase, et c’est tout. C’est la variante la plus mémorable pour un recruteur.
+        </p>
+        <dl class="mt-6 grid gap-3 sm:grid-cols-3">
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Affiché</dt><dd class="mt-2 text-sm text-muted">Question, réponse en une phrase, contexte</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Retiré</dt><dd class="mt-2 text-sm text-muted">Description longue, indicateurs, étiquettes</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Infographie</dt><dd class="mt-2 text-sm text-muted">Sur la page projet</dd></div>
+        </dl>
+      </header>
+
+      <div class="mt-10 rounded-lg border border-line bg-bg-deep p-4 md:p-8">
+        <div class="grid gap-4 md:grid-cols-2">
+          <article class="card flex flex-col justify-between gap-8 p-6 md:p-8">
+            <div>
+              <p class="label text-faint">Projet 01 · Challenge national · Mai 2026</p>
+              <h3 class="title mt-5 text-lg text-balance">Les régions françaises vieillissent-elles <em>toutes de la même façon&nbsp;?</em></h3>
+              <p class="mt-5 max-w-[42ch] text-sm leading-[1.7] text-muted">
+                Non&nbsp;: les 18 régions voient la part des 60 ans et plus progresser entre 2016 et 2022,
+                mais à des rythmes très différents.
+              </p>
+            </div>
+            <a class="link inline-flex items-center gap-2 self-start text-sm font-medium" href="projets/challenge-dataviz-2026/index.html">
+              Challenge Dataviz 2026
+              <svg class="size-4" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </a>
+          </article>
+
+          <article class="card flex flex-col justify-between gap-8 p-6 md:p-8">
+            <div>
+              <p class="label text-faint">Projet 02 · Projet universitaire · 2025–2026</p>
+              <h3 class="title mt-5 text-lg text-balance">Que consomment vraiment les étudiants <em>en matière de culture&nbsp;?</em></h3>
+              <p class="mt-5 max-w-[42ch] text-sm leading-[1.7] text-muted">
+                Une enquête menée de bout en bout auprès des étudiants de l’IUT, du questionnaire
+                à la restitution orale. Analyses en cours de finalisation.
+              </p>
+            </div>
+            <a class="link inline-flex items-center gap-2 self-start text-sm font-medium" href="projets/enquete-pratiques-culturelles/index.html">
+              Enquête pratiques culturelles
+              <svg class="size-4" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+            </a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== VARIANTE 3 -->
+  <section class="section pb-0" id="v3" aria-labelledby="v3-title">
+    <div class="wrap">
+      <header class="max-w-[70ch]">
+        <p class="fig-label"><span class="fig-label__num">03</span> Aperçu visuel</p>
+        <h2 class="title text-xl" id="v3-title">L’image d’abord, le texte ensuite</h2>
+        <p class="mt-4 text-md text-pretty text-muted">
+          La logique des portfolios de création&nbsp;: on montre le livrable, on n’en parle pas.
+          Le visuel occupe les deux tiers de la carte, le texte se limite au titre et à une ligne.
+        </p>
+        <dl class="mt-6 grid gap-3 sm:grid-cols-3">
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Affiché</dt><dd class="mt-2 text-sm text-muted">Visuel, titre, une ligne, deux étiquettes</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Retiré</dt><dd class="mt-2 text-sm text-muted">Indicateurs, second bouton, méta détaillée</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Infographie</dt><dd class="mt-2 text-sm text-muted">Aperçu fixe, version interactive sur la page projet</dd></div>
+        </dl>
+      </header>
+
+      <div class="mt-10 rounded-lg border border-line bg-bg-deep p-4 md:p-8">
+        <div class="grid gap-4 md:grid-cols-2">
+          <article class="card group overflow-hidden">
+            <a class="block no-underline" href="projets/challenge-dataviz-2026/index.html">
+              <div class="overflow-hidden border-b border-line bg-surface-alt">
+                <picture>
+                  <source type="image/avif" srcset="assets/images/dashboard-challenge-dataviz-800.avif 800w, assets/images/dashboard-challenge-dataviz-1200.avif 1200w" sizes="(min-width: 48rem) 32rem, 100vw">
+                  <source type="image/webp" srcset="assets/images/dashboard-challenge-dataviz-800.webp 800w, assets/images/dashboard-challenge-dataviz-1200.webp 1200w" sizes="(min-width: 48rem) 32rem, 100vw">
+                  <img class="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 ease-soft group-hover:scale-[1.03]" src="assets/images/dashboard-challenge-dataviz-1200.webp" width="1660" height="960" alt="Dashboard Power BI du Challenge Dataviz 2026 : barres par région et carte de France." loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="p-6">
+                <p class="label text-faint">Projet 01 · Mai 2026</p>
+                <h3 class="title mt-3 text-lg transition-colors duration-200 group-hover:text-accent">Challenge Dataviz 2026</h3>
+                <p class="mt-3 max-w-[38ch] text-sm leading-[1.65] text-muted">Une journée, quatre personnes, les données INSEE des 18 régions.</p>
+                <div class="mt-5 flex flex-wrap items-center gap-2">
+                  <span class="tag">Power BI</span>
+                  <span class="tag">Cartographie</span>
+                  <svg class="ml-auto size-4 text-faint transition-[transform,color] duration-200 group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <article class="card group overflow-hidden">
+            <a class="block no-underline" href="projets/enquete-pratiques-culturelles/index.html">
+              <div class="case reveal overflow-hidden border-b border-line bg-surface-alt">
+                <svg class="pipeline aspect-[16/10] w-full font-sans transition-transform duration-500 ease-soft group-hover:scale-[1.03]" viewBox="0 0 640 400" role="img" aria-label="Chaîne de traitement de l’enquête en quatre étapes : questionnaire, base nettoyée, analyses, restitution.">
+                  <g class="pipeline__grid"><path d="M0 80H640M0 160H640M0 240H640M0 320H640M80 0V400M160 0V400M240 0V400M320 0V400M400 0V400M480 0V400M560 0V400"/></g>
+                  <path class="pipeline__link" pathLength="1" d="M112 120 C 200 120 200 280 288 280 S 376 120 464 120 S 552 280 560 280"/>
+                  <g class="pipeline__node" transform="translate(40 68)"><rect width="144" height="104" rx="6"/><text class="pipeline__step" x="16" y="30">01</text><text class="pipeline__label" x="16" y="58">Questionnaire</text></g>
+                  <g class="pipeline__node" transform="translate(216 228)"><rect width="144" height="104" rx="6"/><text class="pipeline__step" x="16" y="30">02</text><text class="pipeline__label" x="16" y="58">Base nettoyée</text></g>
+                  <g class="pipeline__node" transform="translate(392 68)"><rect width="144" height="104" rx="6"/><text class="pipeline__step" x="16" y="30">03</text><text class="pipeline__label" x="16" y="58">Analyses</text></g>
+                  <g class="pipeline__node pipeline__node--accent" transform="translate(488 228)"><rect width="144" height="104" rx="6"/><text class="pipeline__step" x="16" y="30">04</text><text class="pipeline__label" x="16" y="58">Restitution</text></g>
+                </svg>
+              </div>
+              <div class="p-6">
+                <p class="label text-faint">Projet 02 · 2025–2026</p>
+                <h3 class="title mt-3 text-lg transition-colors duration-200 group-hover:text-accent">Enquête pratiques culturelles</h3>
+                <p class="mt-3 max-w-[38ch] text-sm leading-[1.65] text-muted">Du questionnaire LimeSurvey à la restitution orale, en quatre étapes.</p>
+                <div class="mt-5 flex flex-wrap items-center gap-2">
+                  <span class="tag">LimeSurvey</span>
+                  <span class="tag">Statistiques</span>
+                  <svg class="ml-auto size-4 text-faint transition-[transform,color] duration-200 group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== VARIANTE 4 -->
+  <section class="section pb-0" id="v4" aria-labelledby="v4-title">
+    <div class="wrap">
+      <header class="max-w-[70ch]">
+        <p class="fig-label"><span class="fig-label__num">04</span> Le chiffre</p>
+        <h2 class="title text-xl" id="v4-title">Un résultat chiffré tient lieu d’accroche</h2>
+        <p class="mt-4 text-md text-pretty text-muted">
+          Cohérent avec le métier&nbsp;: c’est la donnée qui parle. Un chiffre par projet, en très grand,
+          suivi de ce qu’il mesure. Réserve honnête&nbsp;: le projet 02 n’a pas encore de chiffre fort,
+          ce qui déséquilibre un peu la paire tant que l’enquête n’est pas finalisée.
+        </p>
+        <dl class="mt-6 grid gap-3 sm:grid-cols-3">
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Affiché</dt><dd class="mt-2 text-sm text-muted">Un indicateur, son libellé, le titre</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Retiré</dt><dd class="mt-2 text-sm text-muted">Deux indicateurs sur trois, description, étiquettes</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Infographie</dt><dd class="mt-2 text-sm text-muted">Sur la page projet</dd></div>
+        </dl>
+      </header>
+
+      <div class="mt-10 rounded-lg border border-line bg-bg-deep p-4 md:p-8">
+        <div class="grid gap-4 md:grid-cols-2">
+          <article class="card p-6 md:p-8">
+            <p class="font-display text-2xl font-bold leading-none tracking-[-0.04em] text-gradient">18 / 18</p>
+            <p class="mt-4 max-w-[30ch] text-sm leading-[1.6] text-muted">régions où la part des 60&nbsp;ans et plus progresse entre 2016 et 2022</p>
+            <h3 class="title mt-8 border-t border-line pt-6 text-lg">
+              <a class="no-underline transition-colors duration-200 hover:text-accent" href="projets/challenge-dataviz-2026/index.html">Challenge Dataviz 2026</a>
+            </h3>
+            <p class="mt-2 font-mono text-xs uppercase tracking-[0.1em] text-faint">Challenge national · Power BI · Mai 2026</p>
+          </article>
+
+          <article class="card p-6 md:p-8">
+            <p class="font-display text-2xl font-bold leading-none tracking-[-0.04em] text-gradient">04</p>
+            <p class="mt-4 max-w-[30ch] text-sm leading-[1.6] text-muted">étapes menées seul, du questionnaire LimeSurvey à la restitution orale</p>
+            <h3 class="title mt-8 border-t border-line pt-6 text-lg">
+              <a class="no-underline transition-colors duration-200 hover:text-accent" href="projets/enquete-pratiques-culturelles/index.html">Enquête pratiques culturelles</a>
+            </h3>
+            <p class="mt-2 font-mono text-xs uppercase tracking-[0.1em] text-faint">Projet universitaire · Excel · 2025–2026</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== VARIANTE 5 -->
+  <section class="section pb-0" id="v5" aria-labelledby="v5-title">
+    <div class="wrap">
+      <header class="max-w-[70ch]">
+        <p class="fig-label"><span class="fig-label__num">05</span> Bento asymétrique</p>
+        <h2 class="title text-xl" id="v5-title">Un projet phare, un projet secondaire</h2>
+        <p class="mt-4 text-md text-pretty text-muted">
+          Deux projets de poids inégal n’ont pas à occuper la même surface. Le challenge prend la grande
+          tuile avec son visuel, l’enquête une tuile compacte, et une troisième annonce la suite.
+          C’est la même grammaire que ta section Profil.
+        </p>
+        <dl class="mt-6 grid gap-3 sm:grid-cols-3">
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Affiché</dt><dd class="mt-2 text-sm text-muted">Hiérarchie visuelle, un visuel, trois infos par tuile</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Retiré</dt><dd class="mt-2 text-sm text-muted">Indicateurs, étiquettes du projet 02, second bouton</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Infographie</dt><dd class="mt-2 text-sm text-muted">Aperçu dans la grande tuile</dd></div>
+        </dl>
+      </header>
+
+      <div class="mt-10 rounded-lg border border-line bg-bg-deep p-4 md:p-8">
+        <div class="grid gap-4 lg:grid-cols-12">
+          <article class="card group overflow-hidden lg:col-span-7 lg:row-span-2">
+            <a class="flex h-full flex-col no-underline" href="projets/challenge-dataviz-2026/index.html">
+              <div class="p-6 md:p-8">
+                <p class="label text-faint">Projet 01 · Challenge national · Mai 2026</p>
+                <h3 class="title mt-4 max-w-[22ch] text-xl transition-colors duration-200 group-hover:text-accent">Challenge Dataviz 2026</h3>
+                <p class="mt-4 max-w-[44ch] text-sm leading-[1.7] text-muted">Les 18 régions françaises vieillissent-elles toutes de la même façon&nbsp;? Une journée, une équipe de quatre, les données INSEE.</p>
+              </div>
+              <div class="mt-auto overflow-hidden border-t border-line bg-surface-alt">
+                <picture>
+                  <source type="image/avif" srcset="assets/images/dashboard-challenge-dataviz-1200.avif" >
+                  <img class="aspect-[16/7] w-full object-cover object-top transition-transform duration-500 ease-soft group-hover:scale-[1.03]" src="assets/images/dashboard-challenge-dataviz-1200.webp" width="1660" height="960" alt="Dashboard Power BI du Challenge Dataviz 2026." loading="lazy" decoding="async">
+                </picture>
+              </div>
+            </a>
+          </article>
+
+          <article class="card group lg:col-span-5">
+            <a class="block p-6 no-underline md:p-8" href="projets/enquete-pratiques-culturelles/index.html">
+              <p class="label text-faint">Projet 02 · 2025–2026</p>
+              <h3 class="title mt-4 text-lg transition-colors duration-200 group-hover:text-accent">Enquête pratiques culturelles</h3>
+              <p class="mt-3 max-w-[36ch] text-sm leading-[1.65] text-muted">Questionnaire, nettoyage, analyses bivariées, restitution orale.</p>
+              <p class="mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-accent">
+                Voir le projet
+                <svg class="size-4 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg>
+              </p>
+            </a>
+          </article>
+
+          <article class="card flex flex-col justify-center p-6 md:p-8 lg:col-span-5">
+            <p class="label text-faint">Prochainement</p>
+            <p class="mt-3 max-w-[34ch] text-sm leading-[1.65] text-muted">
+              SQL, Python et R&nbsp;: d’autres projets s’ajouteront au fil de la 2<sup>e</sup> année et de l’alternance.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== VARIANTE 6 -->
+  <section class="section pb-0" id="v6" aria-labelledby="v6-title">
+    <div class="wrap">
+      <header class="max-w-[70ch]">
+        <p class="fig-label"><span class="fig-label__num">06</span> Détail repliable</p>
+        <h2 class="title text-xl" id="v6-title">Compact par défaut, complet à la demande</h2>
+        <p class="mt-4 text-md text-pretty text-muted">
+          Si tu tiens à garder le détail sur l’accueil, replie-le. La carte tient en trois lignes, et le
+          visiteur qui veut le contexte, les outils et le résultat les déplie sur place. C’est un
+          <code class="font-mono text-xs text-ink">&lt;details&gt;</code> natif&nbsp;: aucun script, accessible au clavier.
+        </p>
+        <dl class="mt-6 grid gap-3 sm:grid-cols-3">
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Affiché</dt><dd class="mt-2 text-sm text-muted">Titre, une ligne, un bouton</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Replié</dt><dd class="mt-2 text-sm text-muted">Contexte, données, outils, résultat</dd></div>
+          <div class="rounded-sm border border-line bg-surface-alt p-4"><dt class="label text-faint">Infographie</dt><dd class="mt-2 text-sm text-muted">Sur la page projet</dd></div>
+        </dl>
+      </header>
+
+      <div class="mt-10 rounded-lg border border-line bg-bg-deep p-4 md:p-8">
+        <div class="grid gap-4 md:grid-cols-2">
+          <article class="card p-6 md:p-8">
+            <p class="label text-faint">Projet 01 · Mai 2026</p>
+            <h3 class="title mt-3 text-lg">
+              <a class="no-underline transition-colors duration-200 hover:text-accent" href="projets/challenge-dataviz-2026/index.html">Challenge Dataviz 2026</a>
+            </h3>
+            <p class="mt-3 max-w-[42ch] text-sm leading-[1.7] text-muted">
+              Les 18 régions vieillissent-elles toutes de la même façon&nbsp;? Réponse en une journée, à quatre.
+            </p>
+            <details class="group mt-5 border-t border-line pt-5">
+              <summary class="summary-plain flex cursor-pointer list-none items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-accent">
+                Détail du projet
+                <svg class="size-4 transition-transform duration-200 group-open:rotate-180" aria-hidden="true" focusable="false"><use href="#icon-chevron"/></svg>
+              </summary>
+              <dl class="mt-5 grid gap-4 text-sm sm:grid-cols-2">
+                <div><dt class="label text-faint">Contexte</dt><dd class="mt-1.5 text-muted">Challenge national, équipe de quatre, une journée</dd></div>
+                <div><dt class="label text-faint">Données</dt><dd class="mt-1.5 text-muted">INSEE, 18 régions, 2016 et 2022</dd></div>
+                <div><dt class="label text-faint">Outils</dt><dd class="mt-1.5 text-muted">Power BI, Excel, cartographie</dd></div>
+                <div><dt class="label text-faint">Résultat</dt><dd class="mt-1.5 text-muted">Infographie livrée le jour même, rapport PDF</dd></div>
+              </dl>
+              <a class="btn btn--secondary btn--sm mt-5" href="assets/docs/rapport-challenge-dataviz-2026.pdf" download>
+                <svg class="btn__icon" aria-hidden="true" focusable="false"><use href="#icon-download"/></svg>
+                Rapport <span class="ml-1 font-mono text-xs font-normal opacity-70">PDF</span>
+              </a>
+            </details>
+          </article>
+
+          <article class="card p-6 md:p-8">
+            <p class="label text-faint">Projet 02 · 2025–2026</p>
+            <h3 class="title mt-3 text-lg">
+              <a class="no-underline transition-colors duration-200 hover:text-accent" href="projets/enquete-pratiques-culturelles/index.html">Enquête pratiques culturelles</a>
+            </h3>
+            <p class="mt-3 max-w-[42ch] text-sm leading-[1.7] text-muted">
+              Une enquête menée de bout en bout auprès des étudiants de l’IUT, du questionnaire à la restitution.
+            </p>
+            <details class="group mt-5 border-t border-line pt-5">
+              <summary class="summary-plain flex cursor-pointer list-none items-center gap-2 font-mono text-xs uppercase tracking-[0.12em] text-accent">
+                Détail du projet
+                <svg class="size-4 transition-transform duration-200 group-open:rotate-180" aria-hidden="true" focusable="false"><use href="#icon-chevron"/></svg>
+              </summary>
+              <dl class="mt-5 grid gap-4 text-sm sm:grid-cols-2">
+                <div><dt class="label text-faint">Contexte</dt><dd class="mt-1.5 text-muted">Projet universitaire, BUT Science des Données</dd></div>
+                <div><dt class="label text-faint">Données</dt><dd class="mt-1.5 text-muted">Réponses collectées auprès des étudiants de l’IUT</dd></div>
+                <div><dt class="label text-faint">Outils</dt><dd class="mt-1.5 text-muted">LimeSurvey, Excel, statistiques uni et bivariées</dd></div>
+                <div><dt class="label text-faint">Résultat</dt><dd class="mt-1.5 text-muted">Restitution orale, rapport en cours de finalisation</dd></div>
+              </dl>
+            </details>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== SYNTHÈSE -->
+  <section class="section" id="synthese" aria-labelledby="synthese-title">
+    <div class="wrap">
+      <p class="fig-label"><span class="fig-label__num">07</span> Synthèse</p>
+      <h2 class="title text-xl" id="synthese-title">Ce que chaque variante coûte et rapporte</h2>
+
+      <div class="mt-8 overflow-x-auto rounded-lg border border-line">
+        <table class="w-full min-w-[46rem] border-collapse text-left text-sm">
+          <caption class="sr-only">Comparaison des six dispositions de cartes projet</caption>
+          <thead>
+            <tr class="border-b border-line bg-surface-alt">
+              <th scope="col" class="p-4 font-mono text-xs uppercase tracking-[0.1em] text-faint">Variante</th>
+              <th scope="col" class="p-4 font-mono text-xs uppercase tracking-[0.1em] text-faint">Blocs par carte</th>
+              <th scope="col" class="p-4 font-mono text-xs uppercase tracking-[0.1em] text-faint">Ce qu’elle met en avant</th>
+              <th scope="col" class="p-4 font-mono text-xs uppercase tracking-[0.1em] text-faint">Sa limite</th>
+            </tr>
+          </thead>
+          <tbody class="text-muted">
+            <tr class="border-b border-line"><th scope="row" class="p-4 font-semibold text-ink">01 Index</th><td class="p-4">4</td><td class="p-4">La lisibilité immédiate</td><td class="p-4">Aucune preuve visuelle sur l’accueil</td></tr>
+            <tr class="border-b border-line"><th scope="row" class="p-4 font-semibold text-ink">02 Question</th><td class="p-4">4</td><td class="p-4">Ta façon de poser un problème</td><td class="p-4">Demande une question juste par projet</td></tr>
+            <tr class="border-b border-line"><th scope="row" class="p-4 font-semibold text-ink">03 Aperçu</th><td class="p-4">5</td><td class="p-4">Le livrable réel</td><td class="p-4">Exige un visuel propre par projet</td></tr>
+            <tr class="border-b border-line"><th scope="row" class="p-4 font-semibold text-ink">04 Chiffre</th><td class="p-4">4</td><td class="p-4">Le réflexe data</td><td class="p-4">Le projet 02 n’a pas de chiffre fort</td></tr>
+            <tr class="border-b border-line"><th scope="row" class="p-4 font-semibold text-ink">05 Bento</th><td class="p-4">4 et 3</td><td class="p-4">La hiérarchie entre les projets</td><td class="p-4">Assume que le projet 02 est secondaire</td></tr>
+            <tr><th scope="row" class="p-4 font-semibold text-ink">06 Repliable</th><td class="p-4">3 visibles</td><td class="p-4">Le détail sans l’encombrement</td><td class="p-4">Beaucoup ne déplieront jamais</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-10 grid gap-4 lg:grid-cols-2">
+        <article class="card p-6 md:p-8">
+          <p class="label text-accent">Ma recommandation</p>
+          <h3 class="title mt-3 text-lg">La 05, avec le titre de la 02</h3>
+          <p class="mt-4 text-sm leading-[1.7] text-muted">
+            Le bento règle ton vrai problème&nbsp;: tes deux projets n’ont pas le même poids, et la mise en page
+            actuelle les traite à égalité, ce qui oblige à remplir. Il garde une preuve visuelle, ce qui compte
+            pour un profil dataviz, et il divise le texte par trois. En remplaçant le titre descriptif par la
+            question du projet, tu gagnes en plus une accroche que le recruteur retient.
+          </p>
+        </article>
+        <article class="card p-6 md:p-8">
+          <p class="label text-faint">À décider en même temps</p>
+          <ul class="mt-4 grid gap-3 text-sm leading-[1.65] text-muted">
+            <li class="border-l border-line pl-4">L’infographie interactive quitte-t-elle l’accueil&nbsp;? Elle reste entière sur la page projet, où elle est mieux à sa place.</li>
+            <li class="border-l border-line pl-4">Un visuel propre manque pour l’enquête. La chaîne de traitement en quatre étapes fait l’affaire, une capture de tes graphiques serait mieux.</li>
+            <li class="border-l border-line pl-4">Le rapport PDF ne descend plus dans la carte. Il reste accessible sur la page projet.</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="mt-10 border-t border-line pt-6 font-mono text-xs leading-relaxed text-muted">
+        Page temporaire, non indexée et absente de la navigation. Elle sera supprimée en même temps que le panneau Lab.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

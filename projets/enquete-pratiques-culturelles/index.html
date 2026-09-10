@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enquête sur les pratiques culturelles des étudiants de l’IUT · Losseni Zouri</title>
+  <meta name="description" content="Étude de cas : enquête complète sur les pratiques culturelles des étudiants de l'IUT de Paris – Rives de Seine. Questionnaire LimeSurvey, nettoyage de la base sous Excel, analyses statistiques univariées et bivariées, restitution orale. Par Losseni Zouri, Data Analyst en formation.">
+  <meta name="author" content="Losseni Zouri">
+  <meta name="theme-color" content="#0A0D17">
+  <link rel="canonical" href="https://losseni-zouri.github.io/projets/enquete-pratiques-culturelles/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Losseni Zouri - Portfolio Data">
+  <meta property="og:title" content="Enquête sur les pratiques culturelles des étudiants de l’IUT">
+  <meta property="og:description" content="Du questionnaire LimeSurvey à la restitution orale : conception, nettoyage, analyses univariées et bivariées sous Excel.">
+  <meta property="og:url" content="https://losseni-zouri.github.io/projets/enquete-pratiques-culturelles/">
+  <meta property="og:image" content="https://losseni-zouri.github.io/assets/images/og-enquete-pratiques-culturelles.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Enquête sur les pratiques culturelles : du questionnaire à la base de données structurée">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Enquête sur les pratiques culturelles des étudiants de l’IUT">
+  <meta name="twitter:description" content="Étude de cas : questionnaire, base nettoyée, analyses statistiques, restitution. Par Losseni Zouri.">
+  <meta name="twitter:image" content="https://losseni-zouri.github.io/assets/images/og-enquete-pratiques-culturelles.jpg">
+
+  <link rel="icon" href="../../favicon.ico" sizes="48x48">
+  <link rel="icon" href="../../assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+
+  <link rel="preload" href="../../assets/fonts/sora-400-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/instrument-sans-400-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/script.js" defer></script>
+  <script src="../../assets/js/cursor-data.js" defer></script>
+  <script src="../../assets/js/lab.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Portfolio", "item": "https://losseni-zouri.github.io/" },
+          { "@type": "ListItem", "position": 2, "name": "Projets", "item": "https://losseni-zouri.github.io/#projets" },
+          { "@type": "ListItem", "position": 3, "name": "Enquête sur les pratiques culturelles", "item": "https://losseni-zouri.github.io/projets/enquete-pratiques-culturelles/" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "headline": "Enquête sur les pratiques culturelles des étudiants de l’IUT",
+        "description": "Enquête complète menée dans le cadre du BUT Science des Données : conception du questionnaire sous LimeSurvey, nettoyage de la base, analyses statistiques univariées et bivariées sous Excel, restitution orale.",
+        "inLanguage": "fr",
+        "author": { "@type": "Person", "name": "Losseni Zouri", "url": "https://losseni-zouri.github.io/" },
+        "about": ["Enquête", "Statistiques", "LimeSurvey", "Excel"],
+        "mainEntityOfPage": "https://losseni-zouri.github.io/projets/enquete-pratiques-culturelles/"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<svg hidden aria-hidden="true" focusable="false">
+  <symbol id="icon-arrow" viewBox="0 0 20 20"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-arrow-left" viewBox="0 0 20 20"><path d="M16 10H5m4.5-4.5L5 10l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6.5 8.5 7 8.5-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="site-header" id="top">
+  <div class="wrap flex h-full items-center justify-between gap-6">
+    <a class="group inline-flex items-center gap-[0.65rem] font-display text-base font-semibold tracking-[-0.02em] text-ink no-underline" href="../../index.html" aria-label="Losseni Zouri - retour au portfolio">
+      <span>Losseni Zouri</span>
+    </a>
+
+    <button class="nav-toggle inline-flex min-h-11 items-center gap-[0.6rem] border-0 bg-transparent py-2 pl-3 pr-1 font-mono text-xs uppercase tracking-[0.12em] lg:hidden" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle__bars" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+      <ul class="site-nav__list flex flex-col lg:flex-row lg:gap-6">
+        <li><a class="site-nav__link" href="../../index.html">Portfolio</a></li>
+        <li><a class="site-nav__link" href="../../index.html#parcours">Parcours</a></li>
+        <li><a class="site-nav__link" href="../../index.html#projets">Projets</a></li>
+        <li><a class="site-nav__link" href="../../index.html#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn--sm self-start lg:self-center" href="../../index.html#contact">Me contacter</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <article>
+
+    <!-- ============================================================ EN-TÊTE DU PROJET -->
+    <header class="hero case-hero relative isolate overflow-hidden py-16 lg:py-28" aria-labelledby="project-title">
+      <div class="case-hero__media" aria-hidden="true">
+        <picture>
+          <source type="image/avif" srcset="../../assets/images/enquete-etudiants-1200.avif 1200w, ../../assets/images/enquete-etudiants-1600.avif 1600w" sizes="100vw">
+          <source type="image/webp" srcset="../../assets/images/enquete-etudiants-1200.webp 1200w, ../../assets/images/enquete-etudiants-1600.webp 1600w" sizes="100vw">
+          <img src="../../assets/images/enquete-etudiants-1600.webp" width="1600" height="900" alt="" decoding="async" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="wrap">
+        <nav class="mb-6 animate-rise [animation-delay:40ms]" aria-label="Fil d’Ariane">
+          <ol class="flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-muted">
+            <li><a class="no-underline transition-colors hover:text-accent" href="../../index.html">Portfolio</a></li>
+            <li aria-hidden="true" class="text-faint">/</li>
+            <li><a class="no-underline transition-colors hover:text-accent" href="../../index.html#projets">Projets</a></li>
+            <li aria-hidden="true" class="text-faint">/</li>
+            <li class="text-accent" aria-current="page">Projet 02</li>
+          </ol>
+        </nav>
+
+        <p class="case__meta mb-5 flex animate-rise flex-wrap gap-x-[0.6rem] gap-y-[0.35rem] font-mono text-xs uppercase tracking-[0.08em] text-muted [animation-delay:120ms]">
+          <span class="font-medium text-accent">Projet universitaire</span>
+          <span>BUT Science des Données</span>
+          <span>2025–2026</span>
+          <span>Enquête complète</span>
+        </p>
+
+        <h1 class="title max-w-[22ch] animate-rise text-3xl [animation-delay:200ms]" id="project-title">Enquête sur les pratiques culturelles <em>des étudiants de l’IUT</em></h1>
+
+        <p class="mt-6 max-w-[60ch] animate-rise text-lg text-pretty text-muted [animation-delay:300ms]">
+          De la première question du questionnaire à la restitution orale&nbsp;: une enquête menée de bout en bout,
+          pour décrire les pratiques culturelles des étudiants et comprendre ce qui les différencie.
+        </p>
+
+        <div class="mt-8 flex animate-rise flex-wrap gap-3 [animation-delay:400ms]">
+          <a class="btn" href="#methode">Voir la méthode <svg class="btn__icon" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+          <a class="btn btn--secondary" href="../challenge-dataviz-2026/index.html">Projet précédent&nbsp;: Challenge Dataviz</a>
+        </div>
+
+        <dl class="card mt-12 grid animate-rise gap-x-6 gap-y-5 p-6 [animation-delay:500ms] sm:grid-cols-2 lg:grid-cols-5">
+          <div><dt class="label text-faint">Rôle</dt><dd class="mt-1 text-sm font-medium">Questionnaire, base, analyses, restitution</dd></div>
+          <div><dt class="label text-faint">Outils</dt><dd class="mt-1 text-sm font-medium">LimeSurvey · Excel</dd></div>
+          <div><dt class="label text-faint">Données</dt><dd class="mt-1 text-sm font-medium">Réponses des étudiants de l’IUT</dd></div>
+          <div><dt class="label text-faint">Méthodes</dt><dd class="mt-1 text-sm font-medium">Statistiques univariées et bivariées</dd></div>
+          <div><dt class="label text-faint">Livrable</dt><dd class="mt-1 text-sm font-medium">Restitution orale + datavisualisations</dd></div>
+        </dl>
+      </div>
+    </header>
+
+    <!-- ============================================================ CONTEXTE -->
+    <section class="section" id="contexte" aria-labelledby="contexte-title">
+      <div class="wrap reveal grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-24">
+        <div>
+          <p class="fig-label"><span class="fig-label__num">01</span> Contexte &amp; objectif</p>
+          <h2 class="title max-w-[16ch] text-2xl" id="contexte-title">Décrire, puis <em>comparer.</em></h2>
+        </div>
+        <div class="max-w-[62ch] text-muted [&_p+p]:mt-4">
+          <p>
+            L’enquête a été menée dans le cadre du BUT Science des Données, auprès des étudiants de l’IUT de Paris –
+            Rives de Seine. Elle couvre l’ensemble de la chaîne d’une enquête statistique, de la conception du
+            questionnaire à la restitution des résultats.
+          </p>
+          <blockquote class="my-6 rounded-r-sm border-l-2 border-accent bg-accent-soft px-6 py-4 font-display text-md font-medium leading-[1.4] tracking-[-0.01em] text-ink text-pretty">
+            <p>Quelles sont les pratiques culturelles des étudiants de l’IUT, et diffèrent-elles selon leur profil&nbsp;?</p>
+          </blockquote>
+          <p>
+            Deux objectifs&nbsp;: décrire ces pratiques (analyses univariées), puis mettre en évidence les différences
+            selon le profil des répondants (analyses bivariées, tris croisés).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ MÉTHODE -->
+    <section class="section" id="methode" aria-labelledby="methode-title">
+      <div class="wrap">
+        <header class="reveal mb-[clamp(2.5rem,6vw,4.5rem)] grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-24">
+          <div>
+            <p class="fig-label"><span class="fig-label__num">02</span> Méthode</p>
+            <h2 class="title max-w-[18ch] text-2xl" id="methode-title">Quatre étapes, <em>un seul fil.</em></h2>
+          </div>
+          <p class="max-w-[44ch] text-md text-pretty text-muted">Chaque étape produit l’entrée de la suivante&nbsp;: la qualité de la base conditionne celle des analyses.</p>
+        </header>
+
+        <div class="case reveal grid gap-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:items-start lg:gap-16">
+          <figure class="figure-frame figure-frame--media">
+            <svg class="pipeline h-auto w-full font-sans" viewBox="0 0 640 400" role="img" aria-labelledby="pipeline-title pipeline-desc">
+              <title id="pipeline-title">Chaîne de traitement de l’enquête</title>
+              <desc id="pipeline-desc">Quatre étapes reliées&nbsp;: questionnaire LimeSurvey, base de réponses nettoyée sous Excel, analyses statistiques univariées et bivariées, restitution orale avec datavisualisations.</desc>
+              <g class="pipeline__grid">
+                <path d="M0 80H640M0 160H640M0 240H640M0 320H640M80 0V400M160 0V400M240 0V400M320 0V400M400 0V400M480 0V400M560 0V400"/>
+              </g>
+              <path class="pipeline__link" pathLength="1" d="M89 110 C 166 110 166 262 243 262 C 320 262 320 110 397 110 C 474 110 474 262 551 262"/>
+              <g class="pipeline__node" transform="translate(16 56)">
+                <rect width="146" height="108" rx="6"/>
+                <text class="pipeline__step" x="14" y="30">01</text>
+                <text class="pipeline__label" x="14" y="58">Questionnaire</text>
+                <text class="pipeline__tool" x="14" y="82">LimeSurvey</text>
+              </g>
+              <g class="pipeline__node" transform="translate(170 208)">
+                <rect width="146" height="108" rx="6"/>
+                <text class="pipeline__step" x="14" y="30">02</text>
+                <text class="pipeline__label" x="14" y="58">Base nettoyée</text>
+                <text class="pipeline__tool" x="14" y="82">Excel · recodage</text>
+              </g>
+              <g class="pipeline__node" transform="translate(324 56)">
+                <rect width="146" height="108" rx="6"/>
+                <text class="pipeline__step" x="14" y="30">03</text>
+                <text class="pipeline__label" x="14" y="58">Analyses</text>
+                <text class="pipeline__tool" x="14" y="82">uni · bivariées</text>
+              </g>
+              <g class="pipeline__node pipeline__node--accent" transform="translate(478 208)">
+                <rect width="146" height="108" rx="6"/>
+                <text class="pipeline__step" x="14" y="30">04</text>
+                <text class="pipeline__label" x="14" y="58">Restitution</text>
+                <text class="pipeline__tool" x="14" y="82">oral · dataviz</text>
+              </g>
+            </svg>
+            <figcaption class="figure-caption px-4 py-3 text-xs leading-normal text-muted"><span class="mono-num">02.1</span> Chaîne de traitement de l’enquête, du questionnaire à la restitution</figcaption>
+          </figure>
+
+          <ol class="grid gap-4">
+            <li class="card p-5"><span class="label block font-medium text-accent">01 · Questionnaire</span><h3 class="mt-2 font-display text-md font-semibold tracking-[-0.01em]">Concevoir des questions exploitables</h3><p class="mt-1 text-sm text-muted">Rédaction et structuration du questionnaire sous LimeSurvey, choix des modalités de réponse pour faciliter le traitement.</p></li>
+            <li class="card p-5"><span class="label block font-medium text-accent">02 · Base</span><h3 class="mt-2 font-display text-md font-semibold tracking-[-0.01em]">Nettoyer et recoder</h3><p class="mt-1 text-sm text-muted">Collecte des réponses, nettoyage de la base sous Excel, recodage des variables, contrôle de cohérence.</p></li>
+            <li class="card p-5"><span class="label block font-medium text-accent">03 · Analyses</span><h3 class="mt-2 font-display text-md font-semibold tracking-[-0.01em]">Décrire puis croiser</h3><p class="mt-1 text-sm text-muted">Statistiques univariées pour décrire les pratiques, puis bivariées (tris croisés) pour les comparer selon le profil des répondants.</p></li>
+            <li class="card p-5"><span class="label block font-medium text-accent">04 · Restitution</span><h3 class="mt-2 font-display text-md font-semibold tracking-[-0.01em]">Raconter les résultats</h3><p class="mt-1 text-sm text-muted">Restitution orale appuyée par des datavisualisations choisies pour rendre les écarts lisibles.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ RÔLE & APPRENTISSAGES -->
+    <section class="section" id="role" aria-labelledby="role-title">
+      <div class="wrap reveal grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-24">
+        <div>
+          <p class="fig-label"><span class="fig-label__num">03</span> Mon rôle</p>
+          <h2 class="title max-w-[16ch] text-2xl" id="role-title">Du questionnaire <em>à l’oral.</em></h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2">
+          <div class="card p-6">
+            <h3 class="label mb-3 font-medium">Ce que j’ai fait</h3>
+            <ul class="grid gap-2 text-sm text-muted [&_li]:flex [&_li]:gap-2 [&_li]:before:mt-[0.55em] [&_li]:before:size-1.5 [&_li]:before:shrink-0 [&_li]:before:rounded-full [&_li]:before:bg-accent [&_li]:before:content-['']">
+              <li>Rédaction des questions et paramétrage sous LimeSurvey</li>
+              <li>Fiabilisation de la base de réponses sous Excel</li>
+              <li>Analyses statistiques univariées et bivariées</li>
+              <li>Construction des visuels et restitution orale</li>
+            </ul>
+          </div>
+          <div class="card p-6">
+            <h3 class="label mb-3 font-medium">Ce que j’en retiens</h3>
+            <ul class="grid gap-2 text-sm text-muted [&_li]:flex [&_li]:gap-2 [&_li]:before:mt-[0.55em] [&_li]:before:size-1.5 [&_li]:before:shrink-0 [&_li]:before:rounded-full [&_li]:before:bg-accent [&_li]:before:content-['']">
+              <li>Un questionnaire se conçoit en pensant déjà au traitement des réponses</li>
+              <li>Fiabiliser une base prend du temps, et ce temps est toujours rentable</li>
+              <li>Choisir les bons croisements, c’est déjà raconter les résultats</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ RAPPORT -->
+    <section class="section" id="rapport" aria-labelledby="rapport-title">
+      <div class="wrap">
+        <div class="contact-panel reveal relative overflow-hidden rounded-lg border border-line-strong bg-surface p-[clamp(2rem,5vw,4rem)] [&>*]:relative">
+          <p class="fig-label"><span class="fig-label__num">04</span> Rapport</p>
+          <h2 class="title max-w-[18ch] text-2xl" id="rapport-title">Rapport <em>en cours de finalisation.</em></h2>
+          <p class="mt-4 max-w-[56ch] text-md text-pretty text-muted">Le rapport détaillé sera publié ici dès sa finalisation. En attendant, je présente volontiers la démarche et les résultats en entretien.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="btn btn--lg" href="mailto:losseni.zouri@etu.u-paris.fr?subject=Alternance%20Data%20Analytics%20%E2%80%94%20prise%20de%20contact">
+              <svg class="btn__icon" aria-hidden="true" focusable="false"><use href="#icon-mail"/></svg>
+              M’écrire un e-mail
+            </a>
+            <a class="btn btn--secondary btn--lg" href="../../index.html#contact">Toutes les façons de me joindre</a>
+          </div>
+        </div>
+
+        <nav class="mt-10 flex flex-wrap items-center justify-between gap-4 text-sm" aria-label="Navigation entre projets">
+          <a class="inline-flex items-center gap-2 no-underline transition-colors hover:text-accent" href="../challenge-dataviz-2026/index.html"><svg class="size-4" aria-hidden="true" focusable="false"><use href="#icon-arrow-left"/></svg> Projet précédent&nbsp;: Challenge Dataviz 2026</a>
+          <a class="inline-flex items-center gap-2 text-muted no-underline transition-colors hover:text-accent" href="../../index.html#projets">Tous les projets <svg class="size-4" aria-hidden="true" focusable="false"><use href="#icon-arrow"/></svg></a>
+        </nav>
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<footer class="border-t border-line py-6 text-xs text-muted">
+  <div class="wrap flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
+    <p>© 2026 Losseni Zouri · Étudiant en BUT Science des Données - Université Paris Cité</p>
+    <nav class="flex flex-wrap gap-x-6 gap-y-4 [&_a]:text-muted [&_a]:no-underline [&_a:hover]:text-accent [&_a:hover]:underline" aria-label="Liens de pied de page">
+      <a href="../../index.html">Portfolio</a>
+      <a href="mailto:losseni.zouri@etu.u-paris.fr">E-mail</a>
+      <a href="https://www.linkedin.com/in/losseni-zouri-160716253/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Losseni-ZOURI" target="_blank" rel="noopener">GitHub</a>
+      <a href="../../assets/docs/cv-losseni-zouri.pdf" target="_blank" rel="noopener">CV</a>
+      <a class="site-footer__top" href="#top">Haut de page ↑</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
