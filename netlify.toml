@@ -1,0 +1,39 @@
+# Configuration Netlify.
+# Le site est statique et le CSS compilé est committé : aucune étape de build.
+
+[build]
+  publish = "."
+  command = ""
+
+# Polices et images sont versionnées dans leur nom ou stables : cache long.
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/vendor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Le CSS et le JS changent à chaque refonte : revalidation à chaque visite.
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Pages de travail : visibles par lien, jamais par les moteurs.
+[[headers]]
+  for = "/variantes-*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
