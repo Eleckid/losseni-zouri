@@ -2,7 +2,7 @@
   "name": "losseni-zouri-portfolio",
   "version": "2.0.0",
   "private": true,
-  "description": "Portfolio de Losseni Zouri - Data Analyst en formation, alternance Data Analytics 2026",
+  "description": "Portfolio de Losseni Zouri - Data Analyste en formation, alternance Data Analytics 2026",
   "scripts": {
     "build:css": "tailwindcss -i assets/css/tailwind.css -o assets/css/style.css --minify",
     "watch:css": "tailwindcss -i assets/css/tailwind.css -o assets/css/style.css --watch",

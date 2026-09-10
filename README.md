@@ -1,6 +1,6 @@
 # Portfolio - Losseni Zouri
 
-Portfolio de Losseni Zouri, étudiant en BUT Science des Données (Université Paris Cité), Data Analyst en formation, à la recherche d'une alternance en Data Analytics dès septembre 2026.
+Portfolio de Losseni Zouri, étudiant en BUT Science des Données (Université Paris Cité), Data Analyste en formation, à la recherche d'une alternance en Data Analytics dès septembre 2026.
 
 Site en ligne : https://losseni-zouri.github.io/
 
