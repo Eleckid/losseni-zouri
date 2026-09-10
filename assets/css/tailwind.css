@@ -346,13 +346,65 @@
 
   /* Boutons */
   .btn {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 whitespace-nowrap rounded-sm border border-transparent px-[1.35rem] py-[0.7rem] text-sm font-semibold leading-tight tracking-[0.01em] text-on-accent no-underline transition-[filter,border-color,color,transform,box-shadow] duration-200 ease-soft hover:text-on-accent hover:shadow-accent hover:brightness-110 active:translate-y-px active:shadow-none;
+    @apply relative isolate inline-flex min-h-11 items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-sm border border-transparent px-[1.35rem] py-[0.7rem] text-sm font-semibold leading-tight tracking-[0.01em] text-on-accent no-underline transition-[filter,border-color,color,transform,box-shadow] duration-300 ease-soft hover:text-on-accent hover:shadow-accent hover:brightness-110;
     background-image: linear-gradient(135deg, var(--color-accent) 0%, var(--color-cyan) 120%);
   }
 
+  /* Balayage lumineux : une bande oblique traverse le bouton une seule fois. */
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    background: linear-gradient(105deg, transparent 38%, color-mix(in srgb, var(--color-ink) 55%, transparent) 50%, transparent 62%);
+    transform: translateX(-120%);
+    transition: transform 620ms var(--ease-soft);
+    pointer-events: none;
+  }
+
+  .btn:hover::before,
+  .btn:focus-visible::before {
+    transform: translateX(120%);
+  }
+
+  /* Soulèvement au survol, enfoncement au clic : le mouvement reste d'un pixel
+     ou deux, juste assez pour répondre au geste. */
+  .btn:hover,
+  .btn:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+    transition-duration: 80ms;
+  }
+
   .btn--secondary {
-    @apply border-line-strong bg-transparent text-ink hover:border-muted hover:bg-surface-alt hover:text-ink hover:shadow-none hover:brightness-100;
+    @apply border-line-strong bg-transparent text-ink hover:border-accent hover:text-ink hover:shadow-none hover:brightness-100;
     background-image: none;
+  }
+
+  /* Le bouton secondaire se remplit par le bas au lieu de changer de fond. */
+  .btn--secondary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--color-accent) 10%, transparent), color-mix(in srgb, var(--color-accent) 24%, transparent));
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 320ms var(--ease-soft);
+    pointer-events: none;
+  }
+
+  .btn--secondary:hover::after,
+  .btn--secondary:focus-visible::after {
+    transform: scaleY(1);
+  }
+
+  .btn--secondary::before {
+    background: linear-gradient(105deg, transparent 40%, color-mix(in srgb, var(--color-accent) 22%, transparent) 50%, transparent 60%);
   }
 
   .btn--sm {
@@ -793,6 +845,17 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .btn:focus-visible,
+  .btn:active {
+    transform: none;
+  }
+
+  .btn::before,
+  .btn--secondary::after {
+    display: none;
+  }
+
     .cursor__ring,
     .cursor__tick,
     .cursor__readout {
@@ -857,6 +920,20 @@
     animation: fade-in 1.4s ease-out 200ms forwards;
   }
 
+  /* ---- Photo étalonnée -------------------------------------------------
+     La bichromie bleu-nuit vers menthe est appliquée en CSS et non cuite dans
+     le fichier : au survol de la carte, le filtre tombe et la photo retrouve
+     ses couleurs. */
+  .photo-graded {
+    filter: saturate(0.34) brightness(0.86) contrast(1.06) sepia(0.22) hue-rotate(138deg);
+    transition: filter 500ms var(--ease-soft), transform 500ms var(--ease-soft);
+  }
+
+  .group:hover .photo-graded,
+  .group:focus-within .photo-graded {
+    filter: none;
+  }
+
   /* ---- En-tête de page projet en image ----------------------------------
      La photo occupe tout le fond, désaturée et assombrie par deux dégradés :
      un vertical qui la fond dans la page, un horizontal qui creuse le côté du
@@ -874,7 +951,8 @@
     object-fit: cover;
     object-position: 62% 45%;
     opacity: 0.66;
-    filter: saturate(0.8) contrast(1.05);
+    /* Même étalonnage que les vignettes, appliqué en permanence ici. */
+    filter: saturate(0.34) brightness(0.86) contrast(1.06) sepia(0.22) hue-rotate(138deg);
   }
 
   .case-hero__media::after {
@@ -1021,8 +1099,10 @@
     stroke-width: 1;
   }
 
+  /* Fond opaque : avec une teinte translucide, le trait de liaison restait
+     visible à travers le bloc et traversait son numéro. */
   .pipeline__node--accent rect {
-    fill: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    fill: color-mix(in oklab, var(--color-accent) 12%, var(--color-surface-raised));
     stroke: var(--color-accent);
   }
 
