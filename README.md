@@ -121,6 +121,15 @@ Un bouton « Lab » (bas droite) ouvre un panneau qui applique en direct l'une d
 
 ## Déploiement
 
+Le site est un dossier statique : aucun build n est nécessaire, `assets/css/style.css` étant committé.
+
+- **Dépôt** : https://github.com/Eleckid/losseni-zouri (privé), branche `main`.
+- **Aperçu Netlify** : https://losseni-zouri.netlify.app, configuration dans `netlify.toml` (publish ".", pas de commande de build, en-têtes de cache).
+- **Déploiement manuel** depuis le dossier : `netlify deploy --prod --no-build --dir .`
+- **Déploiement automatique** : connecter le dépôt dans Netlify (Project configuration → Build & deploy → Link repository), commande de build vide, publish ".".
+
+### Sur GitHub Pages (cible finale, compte de Losseni)
+
 Le site est servi par GitHub Pages depuis la branche principale du dépôt `losseni-zouri.github.io`. Pousser les fichiers à la racine du dépôt suffit (`node_modules/` est ignoré).
 
 Pour tester en local :
